@@ -8,7 +8,7 @@ class EleIndex(scrapy.Spider):
     name = "ele"
     allowed_domains = ["ele.me"]
     start_urls = [
-        "https://mainsite-restapi.ele.me/shopping/restaurants?limit=40&offset=0&terminal=web&latitude=30.19793&longitude=120.34894",
+        "http://mainsite-restapi.ele.me/shopping/restaurants?limit=40&offset=0&terminal=web&latitude=30.19793&longitude=120.34894",
     ]
 
     # 列表爬虫
@@ -34,8 +34,8 @@ class EleIndex(scrapy.Spider):
             )
             items.append(item)
             # 详情抓取
-            url = "https://mainsite-restapi.ele.me/shopping/v2/menu?restaurant_id=" + str(d["id"])
-            yield scrapy.Request(url, self.parse_detail)
+            # url = "https://mainsite-restapi.ele.me/shopping/v2/menu?restaurant_id=" + str(d["id"])
+            # yield scrapy.Request(url, self.parse_detail)
         # 广度爬 4个方向1公里裂变
         # todo
         # 列表深度爬 每个点爬100条
